@@ -31,7 +31,7 @@ function getResults(req, res) {
 function getResultsFromDb(id, callback) {
 	console.log("get results from db from id");
 
-	var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price <= 20 AND foundation_skin.skin_id = $1:skint";
+	var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price <= 20 AND foundation_skin.skin_id= $1::int";
 	// var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
 	var params = [id];
 

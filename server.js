@@ -31,7 +31,7 @@ function getResults(req, res) {
 function getResultsFromDb(id, callback) {
 	console.log("get results from db from id");
 
-	var sql = "SELECT skin_id, type FROM skin_type WHERE id= $1::int"; 
+	var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
 	var params = [id];
 
 	pool.query(sql, params, function(err, result) {

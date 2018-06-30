@@ -3,7 +3,7 @@ var app = express();
 
 const { Pool } = require("pg");
 
-const connectionString = process.env.DATABASE_URL || "postgress://finaluser:john@localhost:5432/finalproject";
+const connectionString = process.env.DATABASE_URL || "postgres://finaluser:john@localhost:5432/finalproject";
 const pool = new Pool({connectionString: connectionString});
 
 app.set("port", (process.env.PORT || 5000));
@@ -18,7 +18,7 @@ app.listen(app.get("port"), function() {
 function getResults(req, res) {
 	console.log("Getting results..");
 
-	var id = req.querey.id;
+	var id = req.query.id;
 	console.log("id..");
 
 	getResultsFromDb(id, function(error, result) {
@@ -34,7 +34,7 @@ function getResultsFromDb(id, callback) {
 	var sql = "SELECT skin_id, type FROM skin_type WHERE id= $1::int"; 
 	var params = [id];
 
-	pool.querey(sql, params, function(err, result) {
+	pool.query(sql, params, function(err, result) {
 		if (err) {
 			console.log("an error occured with the DB");
 			console.log(err);

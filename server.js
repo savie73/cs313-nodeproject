@@ -48,25 +48,6 @@ function getResultsFromDb(id, callback) {
 		callback(null, result.rows);
 	});
 
-<script>
-
-    var express = require("express");
-    var app = express();
-
-    const { Pool } = require("pg");
-
-    const connectionString = process.env.DATABASE_URL || "postgres://finaluser:john@localhost:5432/finalproject";
-    const pool = new Pool({connectionString: connectionString});
-
-    app.set("port", (process.env.PORT || 5000));
-
-    app.get("/getSkinType", getSkinType);
-    app.use(express.static('public'));
-
-    app.listen(app.get("port"), function() {
-      console.log("listening" + app.get("port"));
-
-    });
 
   function getSkinType(req, res) {
   console.log("Getting skinje type results..");
@@ -106,14 +87,6 @@ function getSkinTypeFromDb(id, callback) {
       }
     callback(null, result.rows);
   });
-
-
-
-
-
-
-
-
 
 
 

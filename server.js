@@ -79,7 +79,7 @@ function getSkinTypeFromDb(id, callback) {
     console.log("found Db: result" + JSON.stringify(result.rows));
     var topic_row;
     var skin_id;
-      foreach (('SELECT skin_id, type FROM skin_type') as topic_row)
+      foreach (sql)
       { 
         skin_id = topic_row['skin_id'];
         <input type="radio" name="skint" value="skin_id"> . topic_row["type"];

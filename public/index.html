@@ -62,7 +62,7 @@ bodzy,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
   <!-- Image header -->
   <div class="w3-display-container w3-container">
-    <img src="/project/images/esteebanner.jpg" alt="Jeans" style="width:100%">
+    <img src="/images/esteebanner.jpg" alt="Jeans" style="width:100%">
   </div>
 
   
@@ -75,7 +75,7 @@ bodzy,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   PRODUCT START
   PRODUCT START
  -->
- <script>
+ <!-- <script>
 
     var express = require("express");
     var app = express();
@@ -88,6 +88,7 @@ bodzy,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     app.set("port", (process.env.PORT || 5000));
 
     app.get("/getSkinType", getSkinType);
+    app.use(express.static('public'));
 
     app.listen(app.get("port"), function() {
       console.log("listening" + app.get("port"));
@@ -95,7 +96,7 @@ bodzy,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     });
 
   function getSkinType(req, res) {
-  console.log("Getting skin type results..");
+  console.log("Getting skinje type results..");
 
   var id = req.query.id;
   console.log("id..");
@@ -133,7 +134,7 @@ function getSkinTypeFromDb(id, callback) {
     callback(null, result.rows);
   });
   
- </script>
+ </script> -->
 <!-- <script src="myscripts.js"></script> -->
     <div>
     <form action="results.php" method="post">
@@ -143,7 +144,7 @@ function getSkinTypeFromDb(id, callback) {
 
     <label for="skin">What is your skin type?</label><br>
     
-    <script type="text/javascript"> document.write(getSkinType()) </script>
+    <script src="server.js" type="text/javascript"> document.write(getSkinType()) </script>
     <input type ="submit">
    </form>
    </div>

@@ -33,48 +33,101 @@ function getResults(req, res) {
 function getResultsFromDb(id, callback) {
 	console.log("get results from db from id");
 
-	var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price <= 20 AND foundation_skin.skin_id= $1::int";
+	var source = $("#price").val();
+	var skin_id = $("#skint").val();
+
+	if(source == 'cheap') {
+		var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price <= 20 AND foundation_skin.skin_id= $1::int";
 	// var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
-	var params = [id];
+		var params = [id];
 
-	pool.query(sql, params, function(err, result) {
-		if (err) {
-			console.log("an error occured with the DB");
-			console.log(err);
-			callback(err, null);
-		}
+		pool.query(sql, params, function(err, result) {
+			if (err) {
+				console.log("an error occured with the DB");
+				console.log(err);
+				callback(err, null);
+			}
 
-		console.log("found Db: result" + JSON.stringify(result.rows));
-		callback(null, result.rows);
-	});
+			console.log("found Db: result" + JSON.stringify(result.rows));
+			var resultList = $("#ulResults");
+			foreach (rows as row)
+			{
+				append(
+      			"<div class="w3-col l3 s6">"
+      			"<div class="w3-container">"
+				"<img src="' . $row['image'] . '" alt="alt text"  width="100%" />"
+      			' ' .row['brand'];
+      			' ' .row['product_name'];
+      			' $' . row['price'];
+		  		"<br/>"
+      			"</div>"
+      			"</div>"
+      			);
+			}
+			callback(null, result.rows);
+		});
+	}	
+	else if (source == 'pricey') {
+		var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price >= 21 AND foundation_skin.skin_id= $1::int";
+	// var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
+		var params = [id];
+
+		pool.query(sql, params, function(err, result) {
+			if (err) {
+				console.log("an error occured with the DB");
+				console.log(err);
+				callback(err, null);
+			}
+
+			console.log("found Db: result" + JSON.stringify(result.rows));
+			foreach ($rows as $row)
+			{
+      			append(
+      			"<div class="w3-col l3 s6">"
+      			"<div class="w3-container">"
+				"<img src="' . row['image'] . '" alt="alt text"  width="100%" />"
+      			' ' .row['brand'];
+      			' ' .row['product_name'];
+      			' $' .row['price'];
+		  		"<br/>"
+      			"</div>"
+      			"</div>"
+      			);
+			}
+			callback(null, result.rows);
+		});
+	}
 
 
-  function getSkinType(req, res) {
-  console.log("Getting skinje type results..");
+	
+}	
 
-  var id = req.query.id;
-  console.log("id..");
 
-  getSkinTypeFromDb(id, function(error, result) {
+function getSkinType(req, res) {
+  	console.log("Getting skinje type results..");
 
-    console.log("back from the sT get db db with resultss", result);
-    res.json(result);
+	var id = req.query.id;
+	console.log("id..");
+
+	getSkinTypeFromDb(id, function(error, result) {
+		console.log("back from the sT get db db with resultss", result);
+		res.json(result);
   });
 }
 
 function getSkinTypeFromDb(id, callback) {
-  console.log("get skin type results from db from id");
+	console.log("get skin type results from db from id");
 
-  var sql = "(SELECT skin_id, type FROM skin_type) as $topic_row";
-  // var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
-  var params = [id];
+  	var sql = "(SELECT skin_id, type FROM skin_type) as $topic_row";
+  	// var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
+  	var params = [id];
 
-  pool.query(sql, params, function(err, result) {
-    if (err) {
-      console.log("an error occured with the DB");
-      console.log(err);
-      callback(err, null);
-    }
+  	pool.query(sql, params, function(err, result) {
+    	if (err) {
+      		console.log("an error occured with the DB");
+      		console.log(err);
+      		callback(err, null);
+    	}
 
     console.log("found Db: result" + JSON.stringify(result.rows));
     var topic_row;
@@ -82,13 +135,11 @@ function getSkinTypeFromDb(id, callback) {
       foreach (sql)
       { 
         skin_id = topic_row['skin_id'];
-        <input type="radio" name="skint" value="skin_id"> . topic_row["type"];
+        append("<input type="radio" name="skint" value="skin_id">" . topic_row["type"]);
     
       }
     callback(null, result.rows);
   });
-
-
 
 
 }

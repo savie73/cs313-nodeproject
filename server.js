@@ -9,7 +9,7 @@ const pool = new Pool({connectionString: connectionString});
 app.set("port", (process.env.PORT || 5000));
 
 app.get("/getResults", getResults);
-// app.get("/getSkinType", getSkinType);
+app.get("/getSkinType", getSkinType);
 app.use(express.static('public'));
 
 app.listen(app.get("port"), function() {
@@ -17,6 +17,10 @@ app.listen(app.get("port"), function() {
 
 });
 
+// This is the section for getting the form results back
+// This is the section for getting the form results back
+// This is the section for getting the form results back
+// This is the section for getting the form results back
 function getResults(req, res) {
 	console.log("Getting results..");
 
@@ -41,7 +45,7 @@ function getResultsFromDb(id, callback) {
 	// var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
 		var params = [id];
 
-		pool.query(sql, params, function(err, result, rows) {
+		pool.query(sql, params, function(err, result) {
 			if (err) {
 				console.log("an error occured with the DB");
 				console.log(err);
@@ -52,7 +56,7 @@ function getResultsFromDb(id, callback) {
 			var resultList = $("#ulResults");
 			foreach (rows as row)
 			{
-				append(
+				resultList.append(
       			"<div class="w3-col l3 s6">"
       			"<div class="w3-container">"
 				"<img src="' . $row['image'] . '" alt="alt text"  width="100%" />"
@@ -72,7 +76,7 @@ function getResultsFromDb(id, callback) {
 	// var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
 		var params = [id];
 
-		pool.query(sql, params, function(err, result, rows) {
+		pool.query(sql, params, function(err, result) {
 			if (err) {
 				console.log("an error occured with the DB");
 				console.log(err);
@@ -82,7 +86,7 @@ function getResultsFromDb(id, callback) {
 			console.log("found Db: result" + JSON.stringify(result.rows));
 			foreach ($rows as $row)
 			{
-      			append(
+      			resultList.append(
       			"<div class="w3-col l3 s6">"
       			"<div class="w3-container">"
 				"<img src="' . row['image'] . '" alt="alt text"  width="100%" />"
@@ -96,12 +100,18 @@ function getResultsFromDb(id, callback) {
 			}
 			callback(null, result.rows);
 		});
-	}
-
-
-	
+	}	
 }	
 
+// End form results
+// End form results
+// End form results
+// End form results
+
+// Ajax request info for skin ID to displau on the form
+// Ajax request info for skin ID to displau on the form
+// Ajax request info for skin ID to displau on the form
+// Ajax request info for skin ID to displau on the form
 
 function getSkinType(req, res) {
   	console.log("Getting skinje type results..");
@@ -141,5 +151,6 @@ function getSkinTypeFromDb(id, callback) {
     callback(null, result.rows);
   });
 
-
 }
+
+// End Ajax request skin id section

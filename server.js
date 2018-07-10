@@ -46,9 +46,9 @@ function getResults(request, response) {
 		var params = [];
 		pool.query(sql, params, function (err, results) {
 			if (err) {
-				res.json(err);
+				response.json(err);
 			} else {
-				res.json(results.rows);
+				response.json(results.rows);
 			}
 		})
 		/*for (let row of rows)
@@ -73,9 +73,9 @@ function getResults(request, response) {
 		var params = [];
 		pool.query(sql, params, function (err, results) {
 			if (err) {
-				res.json(err);
+				response.json(err);
 			} else {
-				res.json(results.rows);
+				response.json(results.rows);
 			}
 		})
 		/*foreach (rows as row)

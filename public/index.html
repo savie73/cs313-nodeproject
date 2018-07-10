@@ -4,202 +4,35 @@
   <title>Shopping</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="server.js"></script>
-
-  <style>
-    .w3-sidebar a {font-family: "Roboto", sans-serif}
-    bodzy,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
-  </style>
 </head>
-<body class="w3-content" style="max-width:1200px">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>Foundation Finder</b></h3>
-  </div>
-  <a href="/project/projectmain.php" class="w3-bar-item w3-button w3-padding">Home</a> 
-  <a href="/project/projectquiz.php" class="w3-bar-item w3-button w3-padding">Quiz</a> 
-  
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">Foundation Finder</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:250px">
-
-  <!-- Push down content on small screens -->
-  <div class="w3-hide-large" style="margin-top:83px"></div>
-  
-  <!-- Top header -->
-  <header class="w3-container w3-xlarge">
-    <p class="w3-left">Foundation Finder</p>
-    <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right" onclick="location.href='viewcart.php'"></i>
-      <!-- //shoppping cart -->
-      <i class="fa fa-search"></i>
-    </p>
-  </header>
-
-  <!-- Image header -->
-  <div class="w3-display-container w3-container">
-    <img src="/images/esteebanner.jpg" alt="Jeans" style="width:100%">
-  </div>
-
-  
-
-  <!-- PRODUCT START 
-  PRODUCT START 
-  PRODUCT START
-  PRODUCT START
-  PRODUCT START
-  PRODUCT START
-  PRODUCT START
- -->
- <!-- <script>
-
-    var express = require("express");
-    var app = express();
-
-    const { Pool } = require("pg");
-
-    const connectionString = process.env.DATABASE_URL || "postgres://finaluser:john@localhost:5432/finalproject";
-    const pool = new Pool({connectionString: connectionString});
-
-    app.set("port", (process.env.PORT || 5000));
-
-    app.get("/getSkinType", getSkinType);
-    app.use(express.static('public'));
-
-    app.listen(app.get("port"), function() {
-      console.log("listening" + app.get("port"));
-
-    });
-
-  function getSkinType(req, res) {
-  console.log("Getting skinje type results..");
-
-  var id = req.query.id;
-  console.log("id..");
-
-  getSkinTypeFromDb(id, function(error, result) {
-
-    console.log("back from the sT get db db with resultss", result);
-    res.json(result);
-  });
-}
-
-function getSkinTypeFromDb(id, callback) {
-  console.log("get skin type results from db from id");
-
-  var sql = "(SELECT skin_id, type FROM skin_type) as $topic_row";
-  // var sql = "SELECT skin_id, type FROM skin_type WHERE skin_id= $1::int"; 
-  var params = [id];
-
-  pool.query(sql, params, function(err, result) {
-    if (err) {
-      console.log("an error occured with the DB");
-      console.log(err);
-      callback(err, null);
-    }
-
-    console.log("found Db: result" + JSON.stringify(result.rows));
-    var topic_row;
-    var skin_id;
-      foreach (('SELECT skin_id, type FROM skin_type') as topic_row)
-      { 
-        skin_id = topic_row['skin_id'];
-        <input type="radio" name="skint" value="skin_id"> . topic_row["type"];
-    
-      }
-    callback(null, result.rows);
-  });
-  
- </script> -->
+<body>
 <!-- <script src="myscripts.js"></script> -->
-    <div>
-      <!-- <form action="results.php" method="post"> -->
-      <form>
-        <label for="price">What is your price range?</label><br>
-        <input type="radio" name="price" value="cheap" checked>Drug Store<br>
-        <input type="radio" name="price" value="pricey">High End<br>
+<div>
+  <!-- <form action="results.php" method="post"> -->
+  <form>
+    <label for="price">What is your price range?</label><br>
+    <input type="radio" name="price" value="cheap" checked>Drug Store<br>
+    <input type="radio" name="price" value="pricey">High End<br>
 
-        <label for="skin">What is your skin type?</label><br>
-        
-        <script src="server.js" type="text/javascript"> document.write(getSkinType()) </script>
-        <!-- <input type ="submit"> -->
-        <input value="Submit" type="button" onclick="onsub()">
-     </form>
-   </div>
-
-<!-- RESULTS RESULTS RESULTS    
-RESULTS RESULTS RESULTS    
-RESULTS RESULTS RESULTS    
-RESULTS RESULTS RESULTS   -->  
-
-    <div id="ulResults">
-      
-    </div>
-
-   <!-- PRODUCT END 
-  PRODUCT END 
-  PRODUCTM END
-  PRODUCT END
-  PRODUCT END
-  PRODUCT END
-  PRODUCT END
- -->
-
-  <!-- End page content -->
+    <label for="skin">What is your skin type?</label><br>
+    <input type="radio" name="skin" value="dry" checked>Dry<br>
+    <input type="radio" name="skin" value="oily">Oily<br>
+    <input type="radio" name="skin" value="combo">Combo<br>
+    <input type="radio" name="skin" value="acne">Acne<br>
+    
+    <!-- <script src="server.js" type="text/javascript"> document.write(getSkinType()) </script> -->
+    <!-- <input type ="submit"> -->
+    <input value="Submit" type="button" onclick="getResults()">
+ </form>
 </div>
 
+<div id="results">
+    
+</div>
 
-<script>
-// Accordion 
-function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
-// Click on the "Jeans" link on page load to open the accordion for demo purposes
-document.getElementById("myBtn").click();
-
-
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-</script>
 
 </body>
 </html>

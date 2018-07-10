@@ -43,7 +43,7 @@ function getResults(request, response) {
 
 	if(source == 'cheap') {
 		var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price <= 20 AND foundation_skin.skin_id= $1::int";
-		var params = [];
+		var params = [skin_id];
 		pool.query(sql, params, function (err, results) {
 			if (err) {
 				response.json(err);
@@ -70,7 +70,7 @@ function getResults(request, response) {
 	}	
 	else if (source == 'pricey') {
 		var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price >= 21 AND foundation_skin.skin_id= $1::int";
-		var params = [];
+		var params = [skin_id];
 		pool.query(sql, params, function (err, results) {
 			if (err) {
 				response.json(err);

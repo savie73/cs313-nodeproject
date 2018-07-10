@@ -15,24 +15,7 @@ app.listen(app.get("port"), function() {
 
 });
 
-function getResults2(request, response) {
-	//var source =  $("#price").val(); //do I need to use this in the update section?
-	//var skin_id = $("#skin").val();
-	
-	console.log("Searching for data..");
 
-	
-
-	$.get(connectionString, function(data, status) {
-
-		console.log("Back from server with the following results:")
-		console.log(status);
-		console.log(data);
-
-		updateResults(data);
-	
-	});
-}
 
 function getResults(request, response) {
 	var source = request.query.price;
@@ -50,24 +33,9 @@ function getResults(request, response) {
 			} else {
 				response.json(results.rows);
 			}
-		})
-		/*for (let row of rows)
-			{
-				resultD.append(
-      			"<div class="w3-col l3 s6">"
-      			"<div class="w3-container">"
-				"<img src="' . $row['image'] . '" alt="alt text"  width="100%" />"
-      			' ' .row['brand'];
-      			' ' .row['product_name'];
-      			' $' . row['price'];
-		  		"<br/>"
-      			"</div>"
-      			"</div>"
-      			);
-			}*/
-		
-		
+		})			
 	}	
+
 	else if (source == 'pricey') {
 		var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price >= 21 AND foundation_skin.skin_id= $1::int";
 		var params = [skin_id];
@@ -78,21 +46,7 @@ function getResults(request, response) {
 				response.json(results.rows);
 			}
 		})
-		/*foreach (rows as row)
-			{
-				resultD.append(
-      			"<div class="w3-col l3 s6">"
-      			"<div class="w3-container">"
-				"<img src="' . $row['image'] . '" alt="alt text"  width="100%" />"
-      			' ' .row['brand'];
-      			' ' .row['product_name'];
-      			' $' . row['price'];
-		  		"<br/>"
-      			"</div>"
-      			"</div>"
-      			);
-			}
-*/
+	
 		
 	}	
 }

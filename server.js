@@ -50,5 +50,5 @@ function getResults(request, response) {
 		
 	}	
 
-	ressponse.json({ status: 'done' });
+	response.json({ status: 'done' });
 }

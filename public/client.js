@@ -1,6 +1,8 @@
 function getResults2(request, response) {
 	var source =  $("#price").val(); //do I need to use this in the update section?
 	var skin_id = $("#skin").val();
+
+	// $('input[name=name_of_your_radiobutton]:checked').val();
 	
 	console.log("Searching for data..");
 

@@ -21,7 +21,7 @@ function getResults2(request, response) {
 				resultsD.append(
       			"<div class=\"w3-col l3 s6\">" +
       			"<div class=\"w3-container\">" +
-				"<img src=\"" + row['image'] + " alt=\"alt text\"  width=\"100%\" />" +
+				"<img src=/images/\"" + row['image'] + " alt=\"alt text\"  width=\"100%\" />" +
       			' ' + row['brand'] +
       			' ' + row['product_name'] +
       			' $' + row['price'] +

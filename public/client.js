@@ -1,12 +1,13 @@
+
 function getResults2(request, response) {
-	var source =  $("#price").val(); //do I need to use this in the update section?
-	var skin_id = $("#skin").val();
+	var price =  $("#price").val(); //do I need to use this in the update section?
+	var skin = $("#skin").val();
 	
 	console.log("Searching for data..");
 
 	
 
-	$.get("/getResults?price=" + source + "&skin=" + skin_id, function(data, status) {
+	$.get("/getResults?price=" + price + "&skin=" + skin, function(data, status) {
 
 		console.log("Back from server with the following results:")
 		console.log(status);

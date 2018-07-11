@@ -49,4 +49,6 @@ function getResults(request, response) {
 	
 		
 	}	
+
+	res.json({ status: 'done' });
 }

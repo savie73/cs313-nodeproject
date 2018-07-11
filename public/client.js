@@ -16,7 +16,7 @@ function getResults2(request, response) {
 
 		for (let row of data)
 			{
-				resultD.append(
+				resultsD.append(
       			"<div class=\"w3-col l3 s6\">" +
       			"<div class=\"w3-container\">" +
 				"<img src=\"" + row['image'] + " alt=\"alt text\"  width=\"100%\" />" +

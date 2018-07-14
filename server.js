@@ -20,10 +20,7 @@ app.listen(app.get("port"), function() {
 function getResults(request, response) {
 	var source = request.query.price;
 	var skin_id = request.query.skin;
-	//need to get data varibles cheap and skin_id...howww
 	
-	//var resultsD = $("#results");
-
 	if(source == 'cheap') {
 		var sql = "SELECT foundation.* FROM foundation INNER JOIN foundation_skin ON foundation.found_id = foundation_skin.found_id WHERE foundation.price <= 20 AND foundation_skin.skin_id= $1::int";
 		var params = [skin_id];
@@ -50,5 +47,4 @@ function getResults(request, response) {
 		
 	}	
 
-	// response.json({ status: 'done' });
 }
